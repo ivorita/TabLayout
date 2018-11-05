@@ -4,6 +4,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 
 import com.antelope.android.tablayout.adapter.MyAdapter;
 import com.antelope.android.tablayout.fragment.Fragment1;
@@ -20,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         mViewPager = findViewById(R.id.view_pager);
 
         initPager();
@@ -31,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initPager() {
-        mMyAdapter = new MyAdapter(getSupportFragmentManager());mMyAdapter.addFragment(new Fragment1());
+        mMyAdapter = new MyAdapter(getSupportFragmentManager());
+        mMyAdapter.addFragment(new Fragment1());
         mMyAdapter.addFragment(new Fragment2());
         mMyAdapter.addFragment(new Fragment3());
         mViewPager.setAdapter(mMyAdapter);
